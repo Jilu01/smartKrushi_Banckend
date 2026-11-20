@@ -21,11 +21,16 @@ SECRET_KEY = os.getenv(
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
 DEBUG = False
-allowed_hosts_str = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1,0.0.0.0,testserver,*')
-ALLOWED_HOSTS = [h.strip() for h in allowed_hosts_str.split(',') if h.strip()]
-if 'testserver' not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append('testserver')
+allowed_hosts_str = os.getenv(
+    'ALLOWED_HOSTS',
+    'smartkrushi.pythonanywhere.com,127.0.0.1,localhost'
+)
 
+ALLOWED_HOSTS = [
+    h.strip()
+    for h in allowed_hosts_str.split(',')
+    if h.strip()
+]
 
 # Application definition
 
